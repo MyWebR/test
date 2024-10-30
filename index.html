@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code | Restu</title>
+    <link
+      rel="icon"
+      href="dist/components/image/big-logo.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- CSS Tambahan -->
+    <link rel="stylesheet" href="dist/css/custom.css" />
+    <link rel="stylesheet" href="dist/css/nav.css" />
+    <link rel="stylesheet" href="dist/css/responsifbe.css" />
+  </head>
+
+  <body class="flex h-screen bg-white">
+    <!-- Top Navbar for Mobile -->
+    <div
+      class="top-navbar-mobile fixed top-0 left-0 right-0 bg-white text-gray-800 flex items-center justify-between p-4 md:hidden"
+    >
+      <span class="text-lg flex gap-2 items-center font-semibold">
+        <img
+          src="dist/components/image/big-logo-white.png"
+          alt=""
+          class="w-9 rounded-md"
+        />
+        <p>Restu Ardiansyah</p>
+        <i class="bi bi-patch-check-fill text-sky-500"></i>
+      </span>
+      <button id="menu-toggle" class="menu-button" onclick="toggleSidebar()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </button>
+    </div>
+
+    <!-- Sidebar -->
+    <div
+      id="sidebar"
+      class="fixed inset-y-0 left-0 w-64 shadow-2xl bg-white text-gray-800 p-4 transform -translate-x-full transition-transform duration-300 md:translate-x-0 z-10"
+    >
+      <!-- Profil Navbar Desktop -->
+      <span>
+        <div class="relative flex justify-center items-center">
+          <img
+            src="dist/components/image/bg-profil.webp"
+            alt="Background Profile"
+            class="sidebar-content w-80 h-32 rounded-md"
+          />
+          <img
+            src="dist/components/image/RA.webp"
+            alt="RA"
+            class="w-16 rounded-full border-4 border-white absolute top-32 transform -translate-y-1/2 bg-white"
+          />
+        </div>
+        <!-- Tombol untuk mengubah ukuran sidebar -->
+        <button
+          id="toggle-sidebar"
+          class="minimize-sidebar fixed top-4 left-4 z-10 px-2 py-2 text-slate-800 bg-white rounded"
+        >
+          <i class="bi bi-arrow-left-circle text-2xl text-center ml-1"></i>
+        </button>
+        <span
+          id="icon-verified"
+          class="flex gap-2 items-center justify-center mt-10"
+        >
+          <p class="sidebar-content text-lg font-medium">Restu Ardiansyah</p>
+          <i class="verified bi bi-patch-check-fill text-sky-500"></i>
+        </span>
+        <p class="sidebar-content text-center">@coderestu</p>
+        <hr class="my-4 border-1 border-stone-300 rounded-4" />
+      </span>
+
+      <!-- Sidebar Links -->
+      <ul class="space-y-0 mt-8 md:mt-0">
+        <li>
+          <button
+            id="home-btn"
+            class="nav-button flex gap-3 px-3 py-3 text-gray-800 rounded w-full text-left transition-colors duration-200 ease-in-out active"
+            onclick="showContent('home')"
+          >
+            <i class="bi bi-house text-xl"></i>
+            <p class="sidebar-content">Home</p>
+          </button>
+        </li>
+        <li>
+          <button
+            id="about-btn"
+            class="nav-button flex items-center gap-3 px-3 py-3 text-gray-800 rounded w-full text-left transition-colors duration-200 ease-in-out"
+            onclick="showContent('about')"
+          >
+            <i class="bi bi-eyeglasses text-xl"></i>
+            <p class="sidebar-content text-md">About</p>
+          </button>
+        </li>
+        <li>
+          <button
+            id="project-btn"
+            class="nav-button flex gap-3 px-3 py-3 text-gray-800 rounded w-full text-left transition-colors duration-200 ease-in-out"
+            onclick="showContent('project')"
+          >
+            <i class="bi bi-pencil-square text-xl"></i>
+            <p class="sidebar-content">Project</p>
+          </button>
+        </li>
+        <li>
+          <button
+            id="chat-btn"
+            class="nav-button flex gap-3 px-3 py-3 text-gray-800 rounded w-full text-left transition-colors duration-200 ease-in-out"
+            onclick="showContent('chat')"
+          >
+            <i class="bi bi-chat-dots text-xl"></i>
+            <p class="sidebar-content">Chat Room</p>
+          </button>
+        </li>
+        <li>
+          <button
+            id="contact-btn"
+            class="nav-button flex gap-3 px-3 py-3 text-gray-800 rounded w-full text-left transition-colors duration-200 ease-in-out"
+            onclick="showContent('contact')"
+          >
+            <i class="bi bi-send text-lg"></i>
+            <p class="sidebar-content">Contact</p>
+          </button>
+        </li>
+      </ul>
+
+      <!-- Copyright -->
+      <span id="icon-coffee" class="absolute bottom-0">
+        <div class="relative ml-4 mb-2 flex gap-2">
+          <p class="sidebar-content">&copy; with</p>
+          <i class="coffe bi bi-cup-hot-fill text-amber-900"></i>
+          <p class="sidebar-content">by coderestu</p>
+        </div>
+      </span>
+    </div>
+
+    <!-- Content Area -->
+    <div
+      class="flex-1 p-4 lg:px-80 lg:ml-24 md:px-10 mt-16 md:mt-14"
+      id="content"
+    >
+      <!-- HOME -->
+      <div id="home" class="content-section active">
+        <!-- title -->
+        <h2
+          id="typewriter"
+          class="mengetik font-bold text-secondary text-2xl mb-2 lg:text-4xl"
+        >
+          Hi I'm
+          <span
+            class="before:block before:absolute before:-inset-1 before:-skew-y-1 before:bg-slate-900 relative inline-block"
+          >
+            <span class="relative text-white">
+              <span class="typing"></span>
+            </span>
+          </span>
+        </h2>
+        <!-- tentang -->
+        <ul
+          class="list-disc pl-5 flex items-center gap-8 lg:text-lg md:text-emerald-50"
+        >
+          <li class="text-gray-800"><p>Student</p></li>
+          <li class="text-gray-800"><p>Based in Semarang id</p></li>
+        </ul>
+        <!-- perkenalan singkat -->
+        <p class="sm:text-sm lg:text-lg mt-5 text-gray-800">
+          Passionate and experienced Front End Developer with a strong focus on
+          frontend development. Proficient in Tailwindcss and experienced in all
+          aspects of web technologies. Collaborative team dedicated to
+          delivering efficient, scalable, and visually appealing web
+          applications.
+        </p>
+        <hr class="border-[1.5px] my-8 border-zinc-200" />
+        <!-- artikel terakhir -->
+        <div class="flex gap-4">
+          <i class="bi bi-newspaper lg:text-2xl sm:text-sm"></i>
+          <p class="font-semibold lg:text-2xl md:text-lg text-slate-800">
+            Lastes Article
+          </p>
+        </div>
+        <!-- pengumuman -->
+        <div class="flex items-center justify-between">
+          <p class="my-3 text-md md:text-lg text-slate-800">
+            My lastes Article
+          </p>
+          <div id="pengumuman" class="flex items-center gap-3">
+            <button
+              class="pointer-events-auto lg:text-md md:text-lg text-slate-800"
+            >
+              <i
+                class="bi bi-megaphone lg:text-md md:text-lg text-slate-800"
+              ></i>
+
+              Find out more
+            </button>
+          </div>
+        </div>
+        <!-- artikel -->
+        <div
+          id="article-home"
+          class="snap-x my-5 overflow-x-auto flex gap-4 w-full md:w-2/4 lg:w-[800px] px-4"
+        >
+          <!-- art 1 -->
+          <div class="snap-center shrink-0 lg:w-[26vw]">
+            <img
+              src="dist/components/article/1.png"
+              class="w-full h-auto rounded-lg"
+            />
+            <span class="text-slate-800">
+              <p class="mt-2 font-medium text-lg">Article 1</p>
+              <i
+                >Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Possimus, cumque</i
+              >
+
+              <p class="text-sm font-medium text-stone-400">
+                January - 01 - 2024
+              </p>
+            </span>
+          </div>
+          <!-- art 2 -->
+          <div class="snap-center shrink-0 lg:w-[26vw]">
+            <img
+              src="dist/components/article/2.png"
+              class="w-full h-auto rounded-lg"
+            />
+            <span class="text-slate-800">
+              <p class="mt-2 font-medium text-lg">Article 1</p>
+              <i
+                >Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Possimus, cumque</i
+              >
+
+              <p class="text-sm font-medium text-stone-400">
+                January - 01 - 2024
+              </p>
+            </span>
+          </div>
+          <!-- art 3 -->
+          <div class="snap-center shrink-0 lg:w-[26vw]">
+            <img
+              src="dist/components/article/3.png"
+              class="w-full h-auto rounded-lg"
+            />
+            <span class="text-slate-800">
+              <p class="mt-2 font-medium text-lg">Article 1</p>
+              <i
+                >Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Possimus, cumque</i
+              >
+
+              <p class="text-sm font-medium text-stone-400">
+                January - 01 - 2024
+              </p>
+            </span>
+          </div>
+          <!-- art 4 -->
+          <div class="snap-center shrink-0 lg:w-[26vw]">
+            <img
+              src="dist/components/article/4.png"
+              class="w-full h-auto rounded-lg"
+            />
+            <span class="text-slate-800">
+              <p class="mt-2 font-medium text-lg">Article 1</p>
+              <i
+                >Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Possimus, cumque</i
+              >
+
+              <p class="text-sm font-medium text-stone-400">
+                January - 01 - 2024
+              </p>
+            </span>
+          </div>
+          <!-- art 5 -->
+          <div class="snap-center shrink-0 lg:w-[26vw]">
+            <img
+              src="dist/components/article/5.png"
+              class="w-full h-auto rounded-lg"
+            />
+            <span class="text-slate-800">
+              <p class="mt-2 font-medium text-lg">Article 1</p>
+              <i
+                >Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Possimus, cumque</i
+              >
+
+              <p class="text-sm font-medium text-stone-400">
+                January - 01 - 2024
+              </p>
+            </span>
+          </div>
+          <!-- art 6 -->
+          <div class="snap-center shrink-0 lg:w-[26vw]">
+            <img
+              src="dist/components/article/6.png"
+              class="w-full h-auto rounded-lg"
+            />
+            <span class="text-slate-800">
+              <p class="mt-2 font-medium text-lg">Article 1</p>
+              <i
+                >Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Possimus, cumque</i
+              >
+
+              <p class="text-sm font-medium text-stone-400">
+                January - 01 - 2024
+              </p>
+            </span>
+          </div>
+        </div>
+        <!-- services -->
+        <div class="">
+          <div
+            class="flex gap-3 items-center lg:text-2xl mt-2 font-semibold text-slate-800"
+          >
+            <i class="bi bi-card-text"></i>
+            <p>Services</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT -->
+      <div id="about" class="content-section hidden">
+        <h2 class="font-bold text-secondary text-2xl mb-2 lg:text-4xl">
+          About
+        </h2>
+        <p class="md:text-md lg:text-lg mt-5 text-gray-800">
+          A short story of me
+        </p>
+        <hr class="border-dashed border-[1.5px] my-8 border-zinc-200" />
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum
+          necessitatibus repellendus quos magni sapiente aperiam sit saepe. Ex
+          dolore dolorem ducimus, facere neque possimus? Doloremque esse
+          accusantium natus a quidem in, reiciendis laudantium ex soluta
+          architecto magni obcaecati illo placeat officia quod perferendis ullam
+          corporis! Nemo id maxime hic porro placeat dicta excepturi voluptates
+          et alias, totam consectetur inventore mollitia quae error tenetur
+          quaerat sequi praesentium, ullam recusandae temporibus officia.
+          Repudiandae veritatis eaque facilis officiis! Odio facere sapiente
+          atque provident ad maiores recusandae, fuga nisi, tempora quas quo
+          deleniti quisquam consectetur! Consequatur mollitia labore consectetur
+          quaerat nostrum commodi iure distinctio cumque. Illum ipsum natus
+          laborum et. Sed est modi earum voluptatibus reiciendis corporis atque
+          a dolorum eos exercitationem nihil nisi, et unde ut suscipit
+          praesentium ad, repellendus maxime. Nemo, porro doloremque doloribus
+          non, fuga laboriosam numquam velit ipsam expedita aut consequuntur
+          iste sapiente minima quam cumque. Assumenda corporis nemo dolores rem
+          magni architecto consequatur repellendus libero amet, et iste iure
+          maiores voluptate minima officia incidunt sint a, fugit voluptatum
+          eligendi facilis doloribus sequi. Facere dolor maxime aliquid in
+          voluptate? Eum cumque, a modi assumenda veniam consectetur, est
+          maiores quis quos iusto voluptatum! Assumenda voluptatum nostrum dolor
+          porro. Esse reprehenderit, exercitationem repellendus aut ad adipisci
+          libero incidunt cum nostrum, ducimus sunt id facilis perferendis
+          soluta! Facilis voluptas rem molestias deleniti voluptatibus similique
+          alias architecto maxime voluptates dolores, in corrupti ut quisquam
+          incidunt provident assumenda pariatur eaque recusandae esse?
+          Temporibus eius, quod dolorum ratione cupiditate mollitia! Aliquid non
+          voluptates, aperiam ad soluta ipsum a nihil unde tempore magni eveniet
+          molestiae inventore quaerat repellat laboriosam fugit. Eius velit id
+          itaque alias, quaerat voluptas corporis, odit sapiente voluptatum
+          repellat adipisci! Quasi, id nihil ipsam culpa esse corrupti aliquid
+          voluptatem ipsum rem similique dolorem harum eaque odit ad repellat
+          cupiditate illo ducimus tenetur quam neque exercitationem accusantium?
+          Iusto iure repellat nobis non quae recusandae modi eum odio commodi
+          molestiae quis necessitatibus magni qui quidem ipsa impedit, harum
+          eveniet voluptatem est fuga? Magni consequatur cupiditate aliquam
+          molestiae molestias fugit dolore ullam iste, quod alias laudantium!
+          Odio rem repudiandae similique illo nihil iure nisi voluptas harum nam
+          libero vel illum minima eligendi consectetur suscipit enim dignissimos
+          hic laudantium corrupti natus, quas pariatur iusto! A, odit quae
+          cupiditate quis esse quam amet harum deserunt. Ab recusandae,
+          veritatis perferendis consectetur suscipit in ipsum porro illum magni
+          laboriosam similique dolorum id, dolor, nam sit quam iste explicabo
+          assumenda harum quaerat. Inventore neque enim dolorum vitae hic
+          pariatur quia fugiat aperiam voluptatem corporis sapiente adipisci
+          nemo distinctio reprehenderit fuga magnam, rerum voluptatibus debitis
+          beatae, dolor provident reiciendis illo laudantium. Distinctio beatae
+          iusto consequatur pariatur! At culpa eaque perferendis sed sint
+          adipisci obcaecati harum, ullam, aliquam enim dicta aliquid! Nesciunt
+          qui laboriosam hic atque et adipisci minima labore optio, expedita
+          placeat deserunt unde reiciendis ullam fugiat eum a aut quibusdam
+          inventore animi tempora impedit, dolore quia beatae magnam. Atque
+          voluptas qui cupiditate quasi eos quia quae, sequi natus. Rem a,
+          saepe, voluptas eligendi ut amet reiciendis alias impedit aliquid
+          culpa quis dicta, molestiae voluptate qui. Facere, unde quod.
+          Explicabo quidem veritatis nulla dolorum ipsam. Corrupti, nihil
+          asperiores numquam, sint, id reiciendis laborum voluptatibus iure
+          officia ratione similique quibusdam cum accusantium! Vero error libero
+          fuga voluptas soluta quis explicabo, recusandae veritatis
+          exercitationem necessitatibus ad qui quas, quaerat, esse ducimus magni
+          amet. Aspernatur quos expedita laborum possimus ipsam, corporis sed
+          dolor numquam modi consequatur eius saepe voluptatibus quidem atque
+          harum, magnam repellendus impedit. Ipsa neque delectus veritatis optio
+          ullam, reprehenderit sapiente voluptatibus ad facilis assumenda
+          consequatur excepturi distinctio voluptates quas qui eius tempore
+          doloremque autem minus provident. Reprehenderit, minima perspiciatis?
+          Ipsa error vitae molestiae voluptatibus voluptate voluptatem quod
+          excepturi, vel facere totam, id architecto dolore natus quam nihil
+          voluptates iusto? Deleniti accusantium dolorum voluptate quos impedit
+          ut fugiat aliquam quae nobis optio, autem modi obcaecati magni dolor
+          minima quas id nam consectetur ab dolorem iure molestiae minus itaque.
+          Dolor eaque architecto itaque ipsum tenetur doloremque corporis nobis,
+          quod maxime dolores! Aspernatur reiciendis cum explicabo temporibus
+          hic commodi voluptatem accusantium itaque eum? Libero dolor mollitia
+          provident excepturi molestiae in impedit nesciunt aliquid, saepe
+          accusamus? Dolor quas blanditiis, placeat sed eos ipsa laborum soluta
+          animi accusantium aspernatur aliquam ut, ratione odio veritatis
+          laudantium quasi, dolores recusandae ipsam. Sequi tempora aliquam
+          assumenda. Natus, aliquid dolor nihil fugit officiis, reiciendis sequi
+          quos optio cum, eos laudantium et maiores mollitia magni. Vero enim
+          odit excepturi, quae, est, sequi placeat perspiciatis iure at adipisci
+          laborum! Quis qui expedita sint aut magnam! Dolor reiciendis quaerat
+          dolorem, nobis beatae tenetur commodi odio optio maiores eum ex quam
+          expedita ratione repellat rerum ipsa! Voluptas blanditiis explicabo
+          expedita. Eaque accusamus ut nemo excepturi sint labore omnis quam
+          fugit amet optio inventore debitis eius autem expedita beatae odit
+          molestias, perferendis iure voluptatum nostrum repellat natus nisi aut
+          nihil! Assumenda atque officia hic et quo. Saepe ut vero magnam,
+          obcaecati tenetur error officiis nemo labore quidem quo ea dicta quis
+          minus quasi aspernatur dolorem dolor excepturi, facere temporibus
+          repellat! Unde maiores repudiandae quos omnis, neque nisi culpa illum
+          ducimus hic modi a blanditiis? Autem quaerat voluptates natus
+          voluptatibus, suscipit necessitatibus accusamus. Est doloremque vitae
+          repellendus hic suscipit quia ea nihil qui placeat harum beatae id
+          modi magnam aliquid eaque illo cum, nam enim aliquam vero mollitia
+          labore, porro accusantium. Aliquid, repellat adipisci. Quos beatae
+          iure debitis sit earum, ullam necessitatibus ea vel ratione, ipsum
+          asperiores laboriosam! Beatae minima id, voluptate distinctio fugiat
+          libero laboriosam facere rerum accusantium velit maxime, at nesciunt
+          quam saepe, voluptatibus placeat consectetur? Rem animi placeat
+          incidunt fugit nisi nostrum consectetur quis minima doloremque,
+          blanditiis porro vitae hic facere debitis obcaecati molestiae unde sit
+          odio nulla. Officia aliquid quam consequuntur architecto est delectus
+          consectetur, aspernatur deserunt tenetur, quaerat magnam totam sequi
+          cupiditate earum ullam provident, aliquam accusantium possimus nisi
+          distinctio dolore inventore quos! Blanditiis doloribus quo aliquid,
+          ducimus ad accusantium labore eaque sed ex dolores culpa est excepturi
+          architecto harum sequi quam possimus dolore corporis a voluptas unde
+          vero itaque? Dolore perspiciatis aliquid repellat, voluptates debitis
+          excepturi sint dignissimos similique nemo, architecto quidem!
+        </p>
+      </div>
+
+      <!-- PROJECT -->
+      <div id="project" class="content-section hidden">
+        <h2 class="font-bold text-secondary text-2xl mb-2 lg:text-4xl">
+          Project
+        </h2>
+        <p class="md:text-md lg:text-lg mt-5 text-gray-800">
+          Showcasing my passion for technology, design, and problem-solving
+          through code.
+        </p>
+        <hr class="border-dashed border-[1.5px] my-8 border-zinc-200" />
+        <p class="text-2xl font-semibold mb-5">Montaints</p>
+        <div class="columns-3xs ...">
+          <img
+            class="w-full aspect-video mb-4"
+            src="https://plus.unsplash.com/premium_photo-1666874682139-98517d5b1a85?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bW9udGFpbnN8ZW58MHx8MHx8fDA%3D"
+          />
+          <img
+            class="w-full aspect-square mb-4"
+            src="https://images.unsplash.com/photo-1505832573663-4771041870d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1vbnRhaW5zfGVufDB8fDB8fHww"
+          />
+          <img
+            class="w-full aspect-square mb-4"
+            src="https://images.unsplash.com/photo-1505832573663-4771041870d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1vbnRhaW5zfGVufDB8fDB8fHww"
+          />
+          <img
+            class="w-full aspect-video mb-4"
+            src="https://plus.unsplash.com/premium_photo-1666874682139-98517d5b1a85?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bW9udGFpbnN8ZW58MHx8MHx8fDA%3D"
+          />
+        </div>
+        <p class="text-2xl text-end font-semibold my-5">Montaints</p>
+
+        <img
+          class="float-right w-40 rounded-md"
+          src="https://media.istockphoto.com/id/1960538945/photo/small-group-of-people-trekking-in-mountains.webp?a=1&b=1&s=612x612&w=0&k=20&c=CpA3BK59c7r_h0-4maNnZJhE3w3tGW0N4fS7C0fwemA="
+        />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta illum,
+          aut earum deleniti dignissimos, odit perferendis saepe dolore
+          suscipit, expedita quae aliquid facilis eligendi corporis. Fuga
+          dolorum velit reprehenderit eos odit quas debitis corporis quasi, iste
+          eaque excepturi dolorem recusandae.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta illum,
+          aut earum deleniti dignissimos, odit perferendis saepe dolore
+          suscipit, expedita quae aliquid facilis eligendi corporis. Fuga
+          dolorum velit reprehenderit eos odit quas debitis corporis quasi, iste
+          eaque excepturi dolorem recusandae.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta illum,
+          aut earum deleniti dignissimos, odit perferendis saepe dolore
+          suscipit, expedita quae aliquid facilis eligendi corporis. Fuga
+          dolorum velit reprehenderit eos odit quas debitis corporis quasi, iste
+          eaque excepturi dolorem recusandae.
+        </p>
+      </div>
+
+      <!-- CHAT ROOM -->
+      <div id="chat" class="content-section hidden">
+        <h2 class="font-bold text-secondary text-2xl mb-2 lg:text-4xl">
+          Chat Room
+        </h2>
+        <p class="md:text-md lg:text-lg mt-5 text-gray-800">
+          Leave your impression or suggestion about this website here
+        </p>
+        <hr class="border-dashed border-[1.5px] my-8 border-zinc-200" />
+        <p>COMMING SON</p>
+      </div>
+
+      <!-- CONTACT -->
+      <div id="contact" class="content-section hidden">
+        <h2 class="font-bold text-secondary text-2xl mb-2 lg:text-4xl">
+          Contact
+        </h2>
+        <p class="md:text-md lg:text-lg mt-5 text-gray-800">
+          Let`s get in touch
+        </p>
+        <hr class="border-dashed border-[1.5px] my-8 border-zinc-200" />
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum
+          necessitatibus repellendus quos magni sapiente aperiam sit saepe. Ex
+          dolore dolorem ducimus, facere neque possimus? Doloremque esse
+          accusantium natus a quidem in, reiciendis laudantium ex soluta
+          architecto magni obcaecati illo placeat officia quod perferendis ullam
+          corporis! Nemo id maxime hic porro placeat dicta excepturi voluptates
+          et alias, totam consectetur inventore mollitia quae error tenetur
+          quaerat sequi praesentium, ullam recusandae temporibus officia.
+          Repudiandae veritatis eaque facilis officiis! Odio facere sapiente
+          atque provident ad maiores recusandae, fuga nisi, tempora quas quo
+          deleniti quisquam consectetur! Consequatur mollitia labore consectetur
+          quaerat nostrum commodi iure distinctio cumque. Illum ipsum natus
+          laborum et. Sed est modi earum voluptatibus reiciendis corporis atque
+          a dolorum eos exercitationem nihil nisi, et unde ut suscipit
+          praesentium ad, repellendus maxime. Nemo, porro doloremque doloribus
+          non
+        </p>
+      </div>
+    </div>
+
+    <script src="dist/js/nav.js"></script>
+    <script src="dist/js/home.js"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+/* navbar mobile */
+.menu-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40px; /* Lebar tombol */
+  height: 30px; /* Tinggi tombol */
+  background: transparent;
+  border: none;
+  cursor: pointer; /* Kursor berubah menjadi pointer saat hover */
+  padding: 0; /* Menghilangkan padding default */
+}
+
+.bar {
+  height: 2px; /* Tinggi garis */
+  width: 80%; /* Lebar garis mengikuti lebar tombol */
+  background-color: #333; /* Warna garis */
+  transition: all 0.3s ease; /* Transisi untuk efek smooth */
+}
+
+/* Kelas untuk rotasi dan transformasi */
+.rotate-45 {
+  transform: rotate(45deg) translateY(700%); /* Rotasi dan geser ke bawah */
+}
+
+.-rotate-45 {
+  transform: rotate(-45deg) translateY(-700%); /* Rotasi dan geser ke atas */
+}
+
+.opacity-0 {
+  opacity: 0; /* Menghilangkan garis tengah */
+}
+
+/* Untuk memastikan garis tengah tidak terlihat */
+.bar.middle {
+  height: 0; /* Menghilangkan tinggi garis tengah */
+  margin: 0; /* Menghilangkan margin */
+}
+
+/* button anvbar active */
+.hidden {
+  display: none;
+}
+
+.nav-button.active {
+  background-color: #f4f4f5; /* Warna untuk button aktif */
+  color: #000; /* Ubah warna teks jika diperlukan */
+}
+
+.nav-button:hover {
+  background-color: #f4f4f5; /* Warna hover */
+  color: #000; /* Ubah warna teks saat hover jika diperlukan */
+}
+
+/* Menambahkan gaya awal untuk elemen <p> */
+.sidebar-content {
+  transition: opacity 0.3s ease;
+}
+
+@media screen and (max-width: 800px) {
+  .minimize-sidebar {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Gaya untuk mode gelap */
+  body {
+      background-color: #1a202c; /* Contoh: warna gelap */
+      color: white;
+  }
+}

@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+#pengumuman {
+  padding: 3px 5px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  position: relative;
+  z-index: 10;
+  animation: glowing-border 5s ease-in-out infinite;
+}
+
+@keyframes glowing-border {
+  0% {
+    border-color: blue;
+    box-shadow: 0 0 15px blue;
+  }
+  25% {
+    border-color: cyan;
+    box-shadow: 0 0 15px cyan;
+  }
+  50% {
+    border-color: blue;
+    box-shadow: 0 0 15px blue;
+  }
+  75% {
+    border-color: cyan;
+    box-shadow: 0 0 15px cyan;
+  }
+  100% {
+    border-color: blue;
+    box-shadow: 0 0 15px blue;
+  }
+}
+
+/* ARTICLE HOME */
+#article-home::-webkit-scrollbar {
+  display: none; /* Menghilangkan scrollbar */
+}
+
+@media screen and (max-width: 760px) {
+  #article-home {
+    width: auto;
+  }
+
+  #article-home img {
+    width: 100%;
+  }
+
+  #article-home span p,
+  #article-home span i {
+    font-size: 10px;
+    word-wrap: break-word;
+  }
+}
