@@ -43,7 +43,11 @@
   }
 
   #article-home img {
-    width: 100%;
+    width: auto;
+  }
+
+  .snap-center {
+     width: 70%;
   }
 
   #article-home span p,
